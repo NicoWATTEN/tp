@@ -26,15 +26,16 @@ object PostgresService {
 
  //   dataset.write
  //     .mode(SaveMode.Append)
-    jdbcDF.write
+  //  jdbcDF.write
     // Saving data to a JDBC source
+    dataset.write
       .format("jdbc")
       .option("url", "jdbc:postgresql:dbserver")
       .option("dbtable", "schema.tablename")
       .option("user", "username")
       .option("password", "password")
       .save()
-      .jdbc(url, tableName, Map("user" -> user, "passeword" -> password))
+      //.jdbc(url, tableName, Map("user" -> user, "passeword" -> password))
 
     logger.info("Saved news inside PG database")
 
